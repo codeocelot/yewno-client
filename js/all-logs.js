@@ -7,11 +7,9 @@ import SingleLog from './components/singleLog'
 
 import {Route, Router, Link, browserHistory,IndexRoute } from 'react-router'
 
-
 ReactDOM.render(
-
   <App>
-
+    <AllLogs/>
   </App>,
 
   document.getElementById('react-app')

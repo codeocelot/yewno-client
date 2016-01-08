@@ -2,14 +2,17 @@ var webpack = require('webpack');
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 module.exports = {
 	devtool:'eval',
-	entry: {
-			//'./js/index.js',
-			all:'./js/all-logs.js',
-			single:'./js/single-log.js',
-			style:'./style/style.scss'
+	entry:
+	{
+		all:'./js/all-logs.js',
+		single:'./js/single-log.js',
+		style:'./style/style.scss'
 	},
+	// [
+	// 		'./js/index.js',
+	// ],
 	output:{
-		//filename:'bundle.js',
+		// filename:'bundle.js',
 		filename: "[name].entry.chunk.js",
 		path:__dirname + '/dist',
 		publicPath: 'http://localhost:8080/dist/'

@@ -9,11 +9,7 @@ export default class LogTable extends React.Component{
     this.props = props;
   }
   computeUseage = (ip) => {
-    var mins = _.groupBy(ip,i=>Math.floor(i.timestamp/(60*1000)))
-    return mins;
-  };
-  getMinCount = (min) => {
-    return min.reduce((a,b)=>a+b,0)
+    return _.groupBy(ip,i=>Math.floor(i.timestamp/(60*1000)))
   };
   roundToMin = (timestamp) => {
     return Math.floor(timestamp/(60*1000));

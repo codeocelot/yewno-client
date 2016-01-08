@@ -19,7 +19,7 @@ export default class Logs extends React.Component{
   getLogs(cb){
     request
       .get(this.props.url)
-      .end((err,res)=>{console.log(res);cb(null,res)});
+      .end((err,res)=>cb(null,res));
   }
   // render(){
   //   let logs;
