@@ -9,8 +9,7 @@ export default class LogTable extends React.Component{
     this.props = props;
   }
   computeUseage = (ip) => {
-    var mins = _.groupBy(ip,i=>{return Math.floor(i.timestamp/(60*1000))})
-    debugger;
+    var mins = _.groupBy(ip,i=>Math.floor(i.timestamp/(60*1000)))
     return mins;
   };
   getMinCount = (min) => {
@@ -20,8 +19,6 @@ export default class LogTable extends React.Component{
     return Math.floor(timestamp/(60*1000));
   };
   fmtAddr = (addr) => {
-    var mins = addr.map(m=>m[0].timestamp);
-    // _.zip()
     var minSummary = addr.map(m=>{
       return(
         <tr>
@@ -31,10 +28,7 @@ export default class LogTable extends React.Component{
         </tr>
       )
     })
-    return(
-      {minSummary}
-    )
-
+    return( {minSummary} )
   };
   render(){
     let entries = this.props.logs.map(
@@ -52,36 +46,50 @@ export default class LogTable extends React.Component{
     let ips = _.groupBy(this.props.logs, l=> l.ip);
     let ipUseages = Object.keys(ips).map(key => this.computeUseage(ips[key]))
     let eachAddr = ipUseages.map(a=>{
-      return _.values(a).map(min=>{
+      let mins = _.values(a).map(min=>{
         let time = moment(min[0].timestamp)
-        debugger;
         return(
           <tr>
+            <td>{time.unix()}</td>
             <td>{time.format('YYYY-MM-DD HH:mm')} : </td>
             <td>{min.length}</td>
           </tr>
         )
-      })
+      });
+      debugger;
+      return(
+        <div className="ip-useage">
+        <h4 className="text-left">{_.values(a)[0][0].ip}</h4>
+        <table>
+          <tbody>
+            <tr>
+              <th>Timestamp</th>
+              <th>Human Readable<br/>YYYY-MM-DD HH-MM-ss</th>
+              <th>Requests / Minute</th>
+            </tr>
+            {mins}
+          </tbody>
+        </table>
+        </div>
+      );
     })
     return(
-      <div>
-      <h1>{this.props.endpoint}</h1>
-      <table>
-        <tbody>
-          <tr>
-            <th>IP Addr</th>
-            <th>Timestamp</th>
-            <th>Time</th>
-          </tr>
-          {entries}
-        </tbody>
-      </table>
-      <h3>Aggregates for each addr</h3>
-      <table>
-        <tbody>
+      <div className="endpoint">
+        <hr/>
+          <h2>Endpoint: {this.props.endpoint}</h2>
+          <table>
+            <tbody>
+              <tr>
+                <th>IP Addr</th>
+                <th>Timestamp</th>
+                <th>Time</th>
+              </tr>
+              {entries}
+            </tbody>
+          </table>
+          <h3 className="text-left">Aggregates for each addr</h3>
           {eachAddr}
-        </tbody>
-      </table>
+        <hr/>
       </div>
     )
   }

@@ -1,43 +1,25 @@
-$list-color: #C0C0C0;
-
 body{
-  // font-size:larger;
+  max-width: 1024px;
 }
 
-ul{
-  padding-left:0px;
+table{
+  width:100%;
+  text-align:center;
+  // padding:50px 0px 50px 0px;
 }
 
-li{
-  padding-left:20px;
-  line-height:25px;
-  list-style: none;
-  border-width:1px;
+h1,h2,h3,h4,h5,h6{
+  text-align: center;
 }
 
-li:nth-child(2n+1){
-  border-color : $list-color;
-  border-style: solid;
+.endpoint{
+  padding: 50px 50px 50px 50px;
 }
 
-li:nth-child(2n){
-  background-color:#C0C0C0;
-  // border-style:solid;
+.text-left{
+  text-align:left;
 }
 
-button.btn-rm{
-  float:right;
-
-}
-
-span.error-display{
-  display:none;
-}
-span.error-display.error{
-  display:inline;
-}
-
-input.user-input{
-  padding-left:5px;
-  margin-left:5px;
+.text-right{
+  text-align:right;
 }
