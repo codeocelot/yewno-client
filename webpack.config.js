@@ -1,12 +1,20 @@
-var webpack = require('webpack')
+var webpack = require('webpack');
+var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 module.exports = {
 	devtool:'eval',
-	entry: [
-			'./js/index.js',
-			'./style/style.scss'
-	],
+	entry:
+	{
+		all:'./js/all-logs.js',
+		single:'./js/single-log.js',
+		style:'./style/style.scss'
+	},
+	// [
+	// 		'./js/index.js',
+	// 		'./style/style.scss'
+	// ],
 	output:{
-		filename:'bundle.js',
+		// filename:'bundle.js',
+		filename: "[name].entry.chunk.js",
 		path:__dirname + '/dist',
 		publicPath: 'http://localhost:8080/dist/'
 	},
@@ -14,6 +22,7 @@ module.exports = {
 		// kills the compilation upon an error.
 		// this keeps the outputed bundle **always** valid
 		new webpack.NoErrorsPlugin(),
+		// new CommonsChunkPlugin("commons.chunk.js",["style"])
 	],
 	module:{
 		loaders:[
