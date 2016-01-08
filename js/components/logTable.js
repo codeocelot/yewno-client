@@ -30,8 +30,8 @@ export default class LogTable extends React.Component{
     })
     return( {minSummary} )
   };
-  render(){
-    let entries = this.props.logs.map(
+  fmtEntries = (entries) => {
+    return entries.map(
       e=>{
         let date = moment(e.timestamp)
         return(
@@ -43,6 +43,9 @@ export default class LogTable extends React.Component{
         )
       }
     )
+  };
+  render(){
+    let entries = this.fmtEntries(this.props.logs)
     let ips = _.groupBy(this.props.logs, l=> l.ip);
     let ipUseages = Object.keys(ips).map(key => this.computeUseage(ips[key]))
     let eachAddr = ipUseages.map(a=>{
@@ -56,7 +59,6 @@ export default class LogTable extends React.Component{
           </tr>
         )
       });
-      debugger;
       return(
         <div className="ip-useage">
         <h4 className="text-left">{_.values(a)[0][0].ip}</h4>
