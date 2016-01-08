@@ -6,6 +6,7 @@ import LogTable from './logTable'
 
 export default class Log extends React.Component{
   constructor(props){
+    debugger;
     super(props);
     this.props = props;
     this.state = {logset:[]}
@@ -40,7 +41,7 @@ export default class Log extends React.Component{
     )
   }
 }
-//
+
 // Log.prototype.PropTypes = {
 //   base:React.PropType.string,
 //   path:React.PropType.string

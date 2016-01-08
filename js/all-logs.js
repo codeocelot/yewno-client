@@ -10,7 +10,7 @@ import {Route, Router, Link, browserHistory,IndexRoute } from 'react-router'
 
 ReactDOM.render(
   <App>
-    <AllLogs/>
+    <Log base="localhost:3000/v1" path=""/>
   </App>,
 
   document.getElementById('react-app')
