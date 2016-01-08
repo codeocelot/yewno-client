@@ -10,6 +10,7 @@ module.exports = {
 	},
 	// [
 	// 		'./js/index.js',
+	// 		'./style/style.scss'
 	// ],
 	output:{
 		// filename:'bundle.js',
