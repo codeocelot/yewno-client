@@ -12,12 +12,13 @@ import {Route, Router, Link, browserHistory,IndexRoute } from 'react-router'
   debugger;
   let app;
   debugger;
+	let base = 'server';
   switch(window.location.pathname){
     case '/':
-      app = <Log base="http://localhost:3000" path="/"/>
+      app = <Log base={base} path="/"/>
       break;
     default :
-      app = <Log base="http://localhost:3000" path={window.location.pathname}/>
+      app = <Log base={base} path={window.location.pathname}/>
       break;
   }
   ReactDOM.render(
