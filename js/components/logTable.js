@@ -31,7 +31,7 @@ export default class LogTable extends React.Component{
       e=>{
         let date = moment(e.timestamp)
         return(
-          <tr>
+          <tr key={e.ip+e.timestamp}>
             <td>{e.ip}</td>
             <td>{e.timestamp}</td>
             <td>{date.format('YYYY-MM-DD HH:mm:ss')}</td>
@@ -45,14 +45,14 @@ export default class LogTable extends React.Component{
       let mins = _.values(a).map(min=>{
         let time = moment(min[0].timestamp)
         return(
-          <tr>
+          <tr key={time.unix()}>
             <td>{time.unix()}</td>
             <td>{time.format('YYYY-MM-DD HH:mm')} : </td>
             <td>{min.length}</td>
           </tr>
         )
       });
-      
+
       return(
         <div className="ip-useage">
         <h4 className="text-left">{_.values(a)[0][0].ip}</h4>
@@ -69,7 +69,7 @@ export default class LogTable extends React.Component{
         </div>
       );
     })
-  }
+  };
 
   render(){
     let entries = this.fmtEntries(this.props.logs)

@@ -9,7 +9,6 @@ export default class Logs extends React.Component{
   }
   componentDidMount(){
     this.getLogs((err,resp)=>{
-      debugger;
       this.setState({logs:resp.body.logs,err})
     });
   }

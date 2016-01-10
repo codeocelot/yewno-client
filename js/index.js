@@ -9,9 +9,7 @@ import SingleLog from './components/singleLog'
 import {Route, Router, Link, browserHistory,IndexRoute } from 'react-router'
 
 (function(){
-  debugger;
   let app;
-  debugger;
 	let base = 'server';
   switch(window.location.pathname){
     case '/':

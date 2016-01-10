@@ -6,13 +6,11 @@ import LogTable from './logTable'
 
 export default class Log extends React.Component{
   constructor(props){
-    debugger;
     super(props);
     this.props = props;
     this.state = {logset:[]}
   }
   getLogs = () => {
-    debugger;
     request
       .get(`//${this.props.base}${this.props.path}/logs`)
       .end((err,res)=>{
@@ -34,7 +32,6 @@ export default class Log extends React.Component{
 
     return(
       <div>
-        {/*{fmtEndPoints}*/}
         {singleEndpoint}
         {multiEndpoint}
       </div>
