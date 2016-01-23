@@ -52,5 +52,8 @@ module.exports = {
 				loader : 'file-loader'
 			}
 		]
+	},
+	watchOptions:{
+		poll: true
 	}
 }

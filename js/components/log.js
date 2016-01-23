@@ -1,5 +1,5 @@
 import React from 'react'
-import Logs from './logs'
+// import Logs from './logs'
 import config from '../config/config'
 import request from 'superagent'
 import LogTable from './logTable'
@@ -12,7 +12,7 @@ export default class Log extends React.Component{
   }
   getLogs = () => {
     request
-      .get(`//${this.props.base}${this.props.path}/logs`)
+      .get(`//${this.props.base}/v1/${this.props.path}/logs`)
       .end((err,res)=>{
         this.setState({logset:res.body.logset, logs:res.body.logs});
       });

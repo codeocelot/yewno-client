@@ -1,3 +1,3 @@
 export default {
-    API_URL: 'localhost:3000/v1'
+    API_URL: process.env.SERVER_PORT || 'localhost:3000'
 }

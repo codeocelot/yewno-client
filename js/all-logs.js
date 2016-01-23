@@ -5,7 +5,7 @@ import Log from './components/log'
 import Config from './config/config';
 
 // import {Route, Router, Link, browserHistory,IndexRoute } from 'react-router'
-
+debugger;
 ReactDOM.render(
   <App>
     <Log base={Config.API_URL} path=""/>
