@@ -6,7 +6,7 @@ import Config from './config/config';
 
 ReactDOM.render(
   <App>
-    <Log base={Config.API_URL} path="/hello-world"/>
+    <Log base={Config.API_URL} path="/v1/hello-world/logs"/>
   </App>,
   document.getElementById('react-app')
 )

@@ -12,7 +12,7 @@ export default class Log extends React.Component{
   }
   getLogs = () => {
     request
-      .get(`//${this.props.base}/v1/${this.props.path}/logs`)
+      .get(`//${this.props.base}${this.props.path}`)
       .end((err,res)=>{
         this.setState({logset:res.body.logset, logs:res.body.logs});
       });
